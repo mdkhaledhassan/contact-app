@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'home_screen.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   await Hive.openBox('myBox');
   await Hive.openBox('myBox1');

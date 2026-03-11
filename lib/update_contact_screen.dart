@@ -29,7 +29,7 @@ class _AddContactScreenState extends State<UpdateContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Add Contact'), centerTitle: true),
+      appBar: AppBar(title: Text('Update Contact'), centerTitle: true),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -82,9 +82,9 @@ class _AddContactScreenState extends State<UpdateContactScreen> {
                         myBox1!.putAt(widget.index, numberController.text);
 
                         setState(() {});
+                        Get.back();
                       }
                     }
-                    Get.back();
                     print('updated');
                   },
                   child: Container(
