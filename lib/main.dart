@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'home_screen.dart';
 
-void main() {
+Future<void> main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('myBox');
+  await Hive.openBox('myBox1');
   runApp(const MyApp());
 }
 
@@ -11,6 +16,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo', home: HomeScreen());
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Contact List App',
+      home: HomeScreen(),
+    );
   }
 }
