@@ -30,16 +30,23 @@ class _AddContactScreenState extends State<UpdateContactScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Add Contact'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Form(
-          key: formKey,
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Form(
+            key: formKey,
             child: Column(
               children: [
                 TextFormField(
                   controller: nameController,
                   keyboardType: TextInputType.text,
+                  textInputAction: TextInputAction.next,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a name';
+                    }
+                    return null;
+                  },
                   decoration: InputDecoration(
                     label: Text('Enter Name'),
                     border: OutlineInputBorder(
@@ -51,6 +58,13 @@ class _AddContactScreenState extends State<UpdateContactScreen> {
                 TextFormField(
                   controller: numberController,
                   keyboardType: TextInputType.number,
+                  textInputAction: TextInputAction.done,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter a number';
+                    }
+                    return null;
+                  },
                   decoration: InputDecoration(
                     label: Text('Enter Phone Number'),
                     border: OutlineInputBorder(
