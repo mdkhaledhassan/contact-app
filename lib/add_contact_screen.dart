@@ -18,9 +18,9 @@ class _AddContactScreenState extends State<AddContactScreen> {
 
   @override
   void initState() {
+    super.initState();
     myBox = Hive.box('myBox');
     myBox1 = Hive.box('myBox1');
-    super.initState();
   }
 
   @override
@@ -34,7 +34,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                TextField(
+                TextFormField(
                   controller: nameController,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
@@ -45,7 +45,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                TextField(
+                TextFormField(
                   controller: numberController,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
